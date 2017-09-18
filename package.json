@@ -54,7 +54,7 @@
     "nyc": "^11.2.1",
     "replace": "^0.3.0",
     "rimraf": "^2.6.2",
-    "sinon": "^3.2.1",
+    "sinon": "^3.3.0",
     "sinon-chai": "^2.13.0",
     "standard": "^10.0.3"
   },
@@ -63,7 +63,7 @@
     "dotenv": "^4.0.0",
     "emoji-regex": "^6.5.1",
     "i18n": "github:linagora/i18n-node",
-    "inquirer": "^3.2.3",
+    "inquirer": "^3.3.0",
     "node-emoji": "^1.8.1",
     "pubsub-js": "^1.5.7",
     "slack": "^8.3.1",
