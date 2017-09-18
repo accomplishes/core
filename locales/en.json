@@ -1,0 +1,82 @@
+{
+	"general": {
+		"status": {
+			"setup": "Setup complete, starting",
+			"users": "Found {yellow:%s users}",
+			"achievements": "Loaded {green:%s achievements}",
+			"ready": "Ready & waiting for events..."
+		}
+	},
+	"setup": {
+		"questions": {
+			"token": {
+				"message": "setup.questions.token.message"
+			},
+			"blacklist": {
+				"message": "setup.questions.blacklist.message",
+				"errors": {
+					"slack": "setup.questions.blacklist.errors.slack"
+				}
+			},
+			"channel": {
+				"message": "setup.questions.channel.message"
+			}
+		}
+	},
+	"users": {
+		"load": {
+			"errors": {
+				"slack": "Failed to load Slack users: %s"
+			}
+		},
+		"add": {
+			"added": "Added user {yellow:@%s}"
+		}
+	},
+	"criteria": {
+		"general": {
+			"message": {
+				"name": "Message",
+				"description": "General message handler with count, filtering and searching"
+			},
+			"reaction": {
+				"name": "Reaction",
+				"description": "Track reactions added to messages"
+			}
+		}
+	},
+	"achievement": {
+		"gabby": {
+			"name": "Gabby",
+			"description": "Send 10 messages"
+		},
+		"chatty": {
+			"name": "Chatty",
+			"description": "Send 100 messages"
+		},
+		"talkative": {
+			"name": "Talkative",
+			"description": "Send 1,000 messages"
+		},
+		"verbose": {
+			"name": "Verbose",
+			"description": "Send 10,000 messages"
+		},
+		"loquacious": {
+			"name": "Loquacious",
+			"description": "Send 50,000 messages"
+		},
+		"garrulous": {
+			"name": "Garrulous",
+			"description": "Send 100,000 messages"
+		},
+		"teary": {
+			"name": "Laughing Man",
+			"description": "Send 100 messages featuring :joy:"
+		},
+		"ractionary": {
+			"name": "Reactionary",
+			"description": "Add 100 reactions to messages"
+		}
+	}
+}

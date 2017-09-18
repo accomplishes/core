@@ -60,4 +60,4 @@ typings/
 # Misc
 storage/
 data/blacklist.json
-data/custom.json
+data/achievements/custom.json
