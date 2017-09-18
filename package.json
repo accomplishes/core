@@ -1,0 +1,91 @@
+{
+  "name": "accomplish",
+  "version": "0.0.1",
+  "description": "🌟 Slack achievement and reward tracking for your team and its members",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard --fix test/**/*.js app/**/*.js",
+    "test": "ENV=test nyc --reporter=html --reporter=text mocha --colors test/**.spec.js",
+    "coverage": "ENV=test nyc report --reporter=text-lcov npm test | coveralls",
+    "preversion": "npm run lint && npm test",
+    "preversion:readme": "replace '/v\\d+\\.\\d+\\.\\d+' \"/v$npm_package_version\" ./README.md",
+    "version": "npm run preversion:readme && git add -A README.md",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "bin": {
+    "accomplish": "./index.js"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/accomplishes/core.git"
+  },
+  "keywords": [
+    "accomplish",
+    "slack",
+    "achievement",
+    "reward"
+  ],
+  "author": "Jamie Holdroyd <jamie@moltin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/accomplishes/core/issues"
+  },
+  "homepage": "https://github.com/accomplishes/core#readme",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "locales/",
+    "data/",
+    "app/"
+  ],
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^2.13.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-run": "^0.8.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
+    "replace": "^0.3.0",
+    "rimraf": "^2.6.2",
+    "sinon": "^3.2.1",
+    "sinon-chai": "^2.13.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "dotenv": "^4.0.0",
+    "emoji-regex": "^6.5.1",
+    "i18n": "github:linagora/i18n-node",
+    "inquirer": "^3.2.3",
+    "node-emoji": "^1.8.1",
+    "pubsub-js": "^1.5.7",
+    "slack": "^8.3.1",
+    "winston": "^2.3.1",
+    "winston-daily-rotate-file": "^1.7.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "mocha": true
+    }
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
+  }
+}
