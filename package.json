@@ -1,6 +1,6 @@
 {
   "name": "accomplish",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "🌟 Slack achievement and reward tracking for your team and its members",
   "main": "index.js",
   "scripts": {
