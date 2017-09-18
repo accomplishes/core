@@ -1,0 +1,118 @@
+[
+	{
+		"id": 1,
+		"name": "achievement.gabby.name",
+		"icon": "speech_balloon",
+		"description": "achievement.gabby.description",
+		"points": 10,
+		"reward": false,
+		"rewardItems": [],
+		"criteria": [{
+			"type": "message",
+			"description": "achievement.gabby.description",
+			"required": 10
+		}]
+	},
+	{
+		"id": 2,
+		"name": "achievement.chatty.name",
+		"icon": "speech_balloon",
+		"description": "achievement.chatty.description",
+		"points": 10,
+		"reward": false,
+		"rewardItems": [],
+		"criteria": [{
+			"type": "message",
+			"description": "achievement.chatty.description",
+			"required": 100
+		}]
+	},
+	{
+		"id": 3,
+		"name": "achievement.talkative.name",
+		"icon": "speech_balloon",
+		"description": "achievement.talkative.description",
+		"points": 10,
+		"reward": false,
+		"rewardItems": [],
+		"criteria": [{
+			"type": "message",
+			"description": "achievement.talkative.description",
+			"required": 1000
+		}]
+	},
+	{
+		"id": 4,
+		"name": "achievement.verbose.name",
+		"icon": "speech_balloon",
+		"description": "achievement.verbose.description",
+		"points": 10,
+		"reward": false,
+		"rewardItems": [],
+		"criteria": [{
+			"type": "message",
+			"description": "achievement.verbose.description",
+			"required": 10000
+		}]
+	},
+	{
+		"id": 5,
+		"name": "achievement.loquacious.name",
+		"icon": "speech_balloon",
+		"description": "achievement.loquacious.description",
+		"points": 10,
+		"reward": false,
+		"rewardItems": [],
+		"criteria": [{
+			"type": "message",
+			"description": "achievement.loquacious.description",
+			"required": 50000
+		}]
+	},
+	{
+		"id": 6,
+		"name": "achievement.garrulous.name",
+		"icon": "speech_balloon",
+		"description": "achievement.garrulous.description",
+		"points": 10,
+		"reward": "achievement.garrulous.reward",
+		"rewardItems": [{
+			"type": "title",
+			"first": "first_name",
+			"value": "reward.title.garrulous"
+		}],
+		"criteria": [{
+			"type": "message",
+			"description": "achievement.garrulous.description",
+			"required": 100000
+		}]
+	},
+	{
+		"id": 7,
+		"name": "achievement.teary.name",
+		"icon": "laughing",
+		"description": "achievement.teary.description",
+		"points": 10,
+		"reward": false,
+		"rewardItems": [],
+		"criteria": [{
+			"type": "message | includes:😂",
+			"description": "achievement.teary.description",
+			"required": 100
+		}]
+	},
+	{
+		"id": 8,
+		"name": "achievement.ractionary.name",
+		"icon": "hankey",
+		"description": "achievement.ractionary.description",
+		"points": 10,
+		"reward": false,
+		"rewardItems": [],
+		"criteria": [{
+			"type": "reaction",
+			"description": "achievement.ractionary.description",
+			"required": 100
+		}]
+	}
+]
