@@ -59,6 +59,7 @@
     "standard": "^10.0.3"
   },
   "dependencies": {
+    "ajv": "^5.2.2",
     "chalk": "^2.1.0",
     "dotenv": "^4.0.0",
     "emoji-regex": "^6.5.1",
