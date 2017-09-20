@@ -58,6 +58,6 @@ typings/
 .env
 
 # Misc
-storage/
 data/blacklist.json
-data/achievements/custom.json
+data/storage/
+data/achievements/custom/
