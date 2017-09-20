@@ -78,7 +78,7 @@
 		"reward": "achievement.garrulous.reward",
 		"rewardItems": [{
 			"type": "title",
-			"first": "first_name",
+			"field": "first_name",
 			"value": "reward.title.garrulous"
 		}],
 		"criteria": [{
