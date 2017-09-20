@@ -10,7 +10,9 @@ module.exports = function (user, reward) {
   let update = {}
 
   // Push new value
-  update[reward.field] = i18n.t(reward.value, user.profile[reward.field].split(',')[0])
+  update[reward.field] = reward.value.includes(' ')
+                           ? reward.value
+                           : i18n.t(reward.value, user.profile[reward.field].split(',')[0])
 
   // Run the update
   require('../methods/profile')(user, update).then((result) => {
