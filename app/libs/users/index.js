@@ -3,13 +3,14 @@
 // Load requirements
 const slack = require('slack')
 const path = require('path')
+const fs = require('fs')
 
 // Load utilities
 const i18n = require('../locale')
 const logger = require('../log')
 
-// Data directory
-const dataDir = path.join(__dirname, '../../../data/')
+// Excluded users list
+const blacklist = path.join(__dirname, '../../../data/blacklist.json')
 
 // User tracking and handling
 module.exports = {
@@ -25,7 +26,9 @@ module.exports = {
   ],
 
   // Load the user blacklist
-  blacklist: require(path.join(dataDir, 'blacklist')),
+  blacklist: fs.existsSync(blacklist)
+               ? require(blacklist)
+               : [],
 
   // Contains the list of tracked users
   users: {},
