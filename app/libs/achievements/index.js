@@ -11,6 +11,7 @@ const utils = require('../utils')
 const users = require('../users')
 const i18n = require('../locale')
 const logger = require('../log')
+const validate = require('../validate')
 
 // Configure achievements path
 const achieveDir = path.join(__dirname, '../../../data/achievements/')
@@ -34,9 +35,7 @@ module.exports = {
   load: function () {
     return new Promise((resolve, reject) => {
       // Setup events and binds
-      this.achievements()
-          .criteria()
-          .events()
+      utils.getMethods(this, ['load']).forEach(type => this[type]() )
 
       // Resolve back to main thread with Slack client
       return resolve([this.achievementList, this.client])
@@ -45,8 +44,11 @@ module.exports = {
 
   // Bind achievements to criteria events
   achievements: function () {
-    // Load all achievement config files
-    let items = glob.sync(achieveDir + '**/*.json').reduce((i, file) => i.concat(require(file)), [])
+    // Load, validate and combine all achievements into array
+    let items = glob.sync(achieveDir + '**/*.json', {ignore: path.join(achieveDir, 'custom/locales/*.json')}).filter((file) => {
+      if (validate.achievements(require(file)).status) { return true }
+      return logger.error('Failed to validate {red:%s}, ignoring achievements.', path.basename(file))
+    }).reduce((i, file) => i.concat(require(file)), [])
 
     // Load the achievements file and run through them
     items.forEach((achievement) => {
@@ -63,8 +65,6 @@ module.exports = {
         logger.verbose('Subscribed to {cyan:%s} for {green:%s}', criteria.type, i18n.t(achievement.name))
       })
     })
-
-    return this
   },
 
   // Bind criteria to listen for Slack events
@@ -88,8 +88,6 @@ module.exports = {
         logger.verbose('Subscribed to {cyan:%s} for {magenta:%s}', event, criteria.name)
       })
     })
-
-    return this
   },
 
   // Bind the Slack events required by criteria
@@ -108,7 +106,7 @@ module.exports = {
         if (!user) { return }
 
         // Run validation on this event
-        if (!require('./methods/validate')(user, event)) {
+        if (!require('./methods/valid-event')(user, event)) {
           return logger.verbose('Ignored {cyan:' + event + '} for {yellow:@' + user.name || 'unknown' + '}')
         }
 
@@ -116,7 +114,5 @@ module.exports = {
         return queue.publish('slack ' + event, {message: message, user: user})
       })
     })
-
-    return this
   }
 }
